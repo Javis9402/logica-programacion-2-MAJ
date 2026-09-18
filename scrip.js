@@ -1,15 +1,24 @@
-let temperaturaCelsius;
+/**
+ *! Requerimentos
+ ** Debe solicitar al usuario la temperatura en grados Celsius por prompt o por un input.
+ ** Debe convertir la temperatura ingresada de grados Celsius a grados Fahrenheit y Kelvin
+ ** Debe imprimir ambos resultados por consola o por el DOM.
+ ** Debe ser capaz de identificar si los datos de entrada sean de tipo number, en caso contrario debe mandar un mensaje de error y volver a solicitar los datos.
+ */
 
-while (true) {
-    temperaturaCelsius = prompt("Ingresa la temperatura en grados Celsius:");
+let temperaturaCelsius;
+let datoValido = true;
+
+while (datoValido) {
+    temperaturaCelsius =Number(prompt("Ingresa la temperatura en grados Celsius:", 40));
+    console.log(temperaturaCelsius);
 
     // Verificar que el usuario haya ingresado un número
-    if (temperaturaCelsius !== null && temperaturaCelsius.trim() !== "" && !isNaN(temperaturaCelsius)) {
-        temperaturaCelsius = Number(temperaturaCelsius);
-        break;
+    if (!isNaN(temperaturaCelsius)) {
+        datoValido = false;
+    } else {
+        alert("\nXXXXXXXXXXXXX\nERROR\nXXXXXXXXXXXXX\nSOLO SE ACEPTAN NUMEROS\nXXXXXXXXXXXXX");
     }
-
-    console.error("Error: debes ingresar un valor numérico.");
 }
 
 // Convertir Celsius a Kelvin
